@@ -21,7 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
         username: configService.get<string>('DB_USER'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
-        // entities: [],
+        //entities: [Client, Address, ClientDocument, ExternalID], 
         autoLoadEntities: true,
         synchronize: true,
         logging: process.env.ENV === 'production' ? false : true,

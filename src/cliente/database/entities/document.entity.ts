@@ -19,12 +19,9 @@ export class ClientDocument {
     @Column('text')
     issuingAuthority: string;
 
-    @Column('text')
-    indexInList: string;
+    @Column('float')
+    indexInList: number;
 
     @ManyToOne(() => Client, (cliente) => cliente.idDocuments)
     client: Client;
-
-
-
 }

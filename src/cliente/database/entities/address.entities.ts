@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, OneToOne
 import { Client } from './client.entity';
 
 @Entity()
-export class Address {
+export class Addresses {
 
     @PrimaryGeneratedColumn('uuid')
     encodedKey: string;
@@ -31,7 +31,7 @@ export class Address {
     @Column('float')
     indexInList: number;
 
-    @ManyToOne(() => Client, (cliente) => cliente.address)
+    @ManyToOne(() => Client, (cliente) => cliente.addresses)
     client: Client;
 
 }
