@@ -46,9 +46,17 @@ export class MambuService {
     async approveClient(clientId: string) {
 
         const url = `${this.configService.get<string>('URL_MAMBU')}/clients/${clientId}`
+        const aprobar =
+        [
+            {
+                op: "REPLACE",
+                path: "state",
+                value: "PENDING_APPROVAL"
+            }
+        ]
 
         const { data } = await lastValueFrom(
-            this.httpService.put(url, { headers: this.data })
+            this.httpService.patch(url, aprobar, { headers: this.data })
                 .pipe(map(resp => resp.data))
                 .pipe(
                     catchError(() => {
