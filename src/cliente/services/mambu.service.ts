@@ -108,7 +108,6 @@ export class MambuService {
         )
         return data;
     }
-
     // apruebo la cuenta de prestamos
     async approveLoansAccount(loanAccountId: string) {
 
@@ -122,6 +121,16 @@ export class MambuService {
             this.httpService.post(url, body, { headers: this.data })
                 .pipe(map(resp => resp.data))
 
+        )
+        return data;
+    }
+
+    async getCredit(AccountId: string) {
+
+        const url = `${this.configService.get<string>('URL_MAMBU')}/loans/?loanAccountId=${AccountId}&detailsLevel=FULL`
+        const data = await lastValueFrom(
+            this.httpService.get(url, { headers: this.data })
+                .pipe(map(resp => resp.data))
         )
         return data;
     }

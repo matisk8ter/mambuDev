@@ -75,6 +75,11 @@ export class ClienteController {
         return this.mambuService.getProducts()
     }
 
+    @Get("/mambu/getCredit/:AccountId")
+    async getCredit(@Param('AccountId') AccountId: string) {
+        return this.mambuService.getCredit(AccountId);
+    }
+
 
 
 }
