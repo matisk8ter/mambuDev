@@ -20,6 +20,9 @@ export class Client {
     lastName: string;
 
     @Column('text')
+    state: string;
+
+    @Column('text')
     mobilePhone: string;
 
     @Column()
